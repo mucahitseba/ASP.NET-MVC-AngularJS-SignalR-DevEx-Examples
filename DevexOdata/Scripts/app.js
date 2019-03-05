@@ -34,7 +34,12 @@ app.controller("customerCtrl",function($scope, $http) {
     function loadGrid() {
         console.log($scope.data);
         $scope.dataGridOptions = {
-            dataSource: $scope.data,
+            dataSource: {
+                store: {
+                    type: "odata",
+                    url:'/odata/CustomerOData'
+                }
+            },
             selection: {
                 mode:"multiple"
             },
